@@ -38,11 +38,17 @@ body * {
   cursor: pointer;
   border-radius: 2px;
   border: 0;
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.calc-button:hover {
+  opacity: 1;
 }
 
 .calc-button:active {
   background: #999;
-  border: solid 1px #203e5f;
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
