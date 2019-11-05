@@ -31,7 +31,7 @@ const defaultNegativeReadout = assign({ display: "-0." });
 const appendNumBeforeDecimal = assign(({ display }, { key: num }) => ({ display: display.slice(0, -1) + num + "." }));
 const appendNumAfterDecimal = assign(({ display }, { key: num }) => ({ display: display + num }));
 const setReadoutNum = assign((_, { key: num }) => ({ display: num + "." }));
-const setNegativeReadoutNum = assign((_ , { key: num }) => ({ display: "-" + num + "." }));
+const setNegativeReadoutNum = assign((_, { key: num }) => ({ display: "-" + num + "." }));
 const startNegativeNumber = assign({ display: "-" });
 const recordOperator = assign(({ display }, { operator }) => ({ operand1: display, operator }));
 const setOperator = assign((_, { operator }) => ({ operator }));
@@ -73,7 +73,7 @@ const calcMachine = Machine({
                 target: "operand1.zero",
                 actions: "defaultReadout",
                 cond: "isZero"
-              }, 
+              },
               {
                 target: "operand1.before_decimal_point",
                 actions: "setReadoutNum",
@@ -220,7 +220,8 @@ const calcMachine = Machine({
                 cond: "isMinus"
               }
             ],
-            NUMBER: [{
+            NUMBER: [
+              {
                 target: "operand2.zero",
                 actions: "defaultReadout",
                 cond: "isZero"
@@ -246,7 +247,7 @@ const calcMachine = Machine({
                 cond: "isZero"
               },
               {
-                target :"operand1.before_decimal_point",
+                target: "operand1.before_decimal_point",
                 actions: "setNegativeReadoutNum",
                 cond: "isNotZero"
               }
