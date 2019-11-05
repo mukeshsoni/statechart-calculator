@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "react-dom";
-import Hello from "./Hello";
 import Calculator from "./calculator.js";
 
 const styles = {
