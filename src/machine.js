@@ -22,7 +22,7 @@ const isZero = (_, { key }) => key === 0;
 const isNotZero = not(isZero);
 const isMinus = (_, { operator }) => operator === "-";
 const isNotMinus = not(isMinus);
-const divideByZero = ({ operand2, operator }) => (!operand2 || operand2 === "0.") && operator === "/";
+const divideByZero = ({ display, operator }) => display === "0." && operator === "/";
 const notDivideByZero = not(divideByZero);
 
 // Actions
